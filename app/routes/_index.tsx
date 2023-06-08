@@ -141,8 +141,8 @@ export default function Index() {
         </Wraper>
 
         <Wraper customStyle="py-[10rem]">
-        <h2 className="mb-10 uppercase">RECENT PROJECTS</h2>
-            <div className="grid grid-cols-1 gap-20">
+        <h2 className="uppercase text-sm lg:text-base">RECENT PROJECTS</h2>
+            <div className="grid grid-cols-1 gap-20 mt-10">
               {
                 projects.map((project) => (
                   <div key={project.id} className="grid grid-cols-1 xl:grid-cols-[60%_1fr] gap-4 xl:gap-10">
@@ -180,15 +180,16 @@ export default function Index() {
         
 
 
-        <div className="mx-[3.125rem]">
-          <h2 className="mb-10 uppercase">TOOlS AND PLATFORMS</h2>
-          <div>
+        <Wraper>
+        <h2 className="uppercase text-sm lg:text-base">TOOlS AND PLATFORMS</h2>
+          <div className="mt-10">
               <Carousel />
           </div>
-        </div>
-        <div className="sm:mx-[1rem] md:mx-[1.56rem] lg:mx-[3.125rem] lg:mx-[3.5rem] py-[10rem]">
-            <ContactSections />
-          </div>
+        </Wraper>
+
+        <Wraper>
+        <ContactSections />
+        </Wraper>
       </Wraper>
     </div>
   );
