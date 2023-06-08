@@ -16,35 +16,35 @@ const Grid = () => {
             <motion.span
                 variants={gridVariables}
                 initial="initial"
-                transition={{ duration: 3, delay: 0}}
+                transition={{ duration: 1, delay: 0}}
                 animate="animate"
                 className="h-full w-[1px] bg-[#E0E0E0]"
             ></motion.span>
             <motion.span
                 variants={gridVariables}
                 initial="initial"
-                transition={{ duration: 3, delay: 0.3 }}
+                transition={{ duration: 1, delay: 0.3 }}
                 animate="animate"
                 className="h-full w-[1px] bg-[#E0E0E0]"
             ></motion.span>
             <motion.span
                 variants={gridVariables}
                 initial="initial"
-                transition={{ duration: 3, delay: 0.6 }}
+                transition={{ duration: 1, delay: 0.6 }}
                 animate="animate"
                 className="h-full w-[1px] bg-[#E0E0E0]"
             ></motion.span>
              <motion.span
                 variants={gridVariables}
                 initial="initial"
-                transition={{ duration: 3, delay: 0.9 }}
+                transition={{ duration: 1, delay: 0.9 }}
                 animate="animate"
                 className="h-full w-[1px] bg-[#E0E0E0] hidden sm:block"
             ></motion.span>
             <motion.span
                 variants={gridVariables}
                 initial="initial"
-                transition={{ duration: 3, delay: 1.2 }}
+                transition={{ duration: 1, delay: 1.2 }}
                 animate="animate"
                 className="h-full w-[1px] bg-[#E0E0E0] hidden lg:block"
             ></motion.span>

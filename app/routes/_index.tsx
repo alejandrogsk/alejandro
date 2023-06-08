@@ -156,7 +156,7 @@ export default function Index() {
                         <div className="text-base flex flex-wrap gap-2">
                           {
                             project.tools.map((tool) => (
-                              <span className="border-black border-[1px] text-[10px] sm:text-xs lg:text-sm py-1 px-1.5 rounded-full">{tool}</span>
+                              <span className="border-black border-[1px] text-[10px] py-[2px] sm:text-xs sm:py-1 lg:text-sm  px-1.5 rounded-full">{tool}</span>
                               
                             ))
                           }
