@@ -1,5 +1,5 @@
 
-import type { V2_MetaFunction } from "@remix-run/node";
+import { ActionArgs, V2_MetaFunction, json } from "@remix-run/node";
 import Grid from "~/components/Layout/Grid";
 
 export const meta: V2_MetaFunction = () => {
@@ -14,10 +14,20 @@ import img3 from "../../public/show-3.png"
 import {motion} from "framer-motion"
 import Wraper from "~/components/Layout/wraper";
 import Carousel from "~/components/Carousel";
+import validator from "~/utils/formValidator";
+import {
+  validationError,
+} from "remix-validated-form";
+import ContactSections from "~/components/ContactSection";
 
+export async function action({request}:ActionArgs) {
+  const data = await validator.validate( await request.formData() );
+  if (data.error) return validationError(data.error);
 
+  const { clientName } = data.data;
 
-
+  return json({ message: `Thanks ${clientName}. I will contact you as soon as possible.`}, {status: 200})
+}
 
 export default function Index() {
   const projects = [
@@ -177,8 +187,8 @@ export default function Index() {
           </div>
         </div>
         <div className="sm:mx-[1rem] md:mx-[1.56rem] lg:mx-[3.125rem] lg:mx-[3.5rem] py-[10rem]">
-            
-            </div>
+            <ContactSections />
+          </div>
       </Wraper>
     </div>
   );
