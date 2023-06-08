@@ -1,8 +1,4 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
-import "swiper/css/autoplay";
-import { Autoplay } from "swiper";
+
 import type { V2_MetaFunction } from "@remix-run/node";
 import Grid from "~/components/Layout/Grid";
 
@@ -17,6 +13,12 @@ import img2 from "../../public/show-2.png"
 import img3 from "../../public/show-3.png"
 import {motion} from "framer-motion"
 import Wraper from "~/components/Layout/wraper";
+import Carousel from "~/components/Carousel";
+
+
+
+
+
 export default function Index() {
   const projects = [
     {
@@ -165,44 +167,18 @@ export default function Index() {
             </div>
         </Wraper>
 
-        <div className="sm:mx-[1rem] md:mx-[1.56rem] lg:mx-[3.125rem] lg:mx-[3.5rem] py-[10rem]">
-            
-        </div>
+        
 
 
-        <div className="mx-[3.125rem] py-[10rem]">
+        <div className="mx-[3.125rem]">
           <h2 className="mb-10 uppercase">TOOlS AND PLATFORMS</h2>
           <div>
-          <Swiper
-            modules={[Autoplay]}
-            slidesPerView={5}
-            spaceBetween={30}
-            loop={true}
-            autoplay={{
-              disableOnInteraction:false,
-              pauseOnMouseEnter:true
-            }}
-            
-            speed={500}
-            
-            grabCursor
-            // breakpoints={{
-            //   0: {
-            //       slidesPerView: 3,
-            //       spaceBetween: 15,
-            //   }}}
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        </Swiper>
+              <Carousel />
           </div>
         </div>
-      
+        <div className="sm:mx-[1rem] md:mx-[1.56rem] lg:mx-[3.125rem] lg:mx-[3.5rem] py-[10rem]">
+            
+            </div>
       </Wraper>
     </div>
   );
