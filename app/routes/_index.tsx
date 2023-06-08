@@ -98,7 +98,7 @@ export default function Index() {
 
   return (
     <div style={{ fontFamily: "Inter, sans-serif", lineHeight: 1.125 }}
-    className="min-h-screen"
+    className="h-full"
     >
       <Grid />
       <Wraper customStyle="relative">

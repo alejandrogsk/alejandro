@@ -9,7 +9,7 @@ const Grid = () => {
         },
     };
     return (
-        <div className="absolute flex  top-0 left-0 right-0 bottom-0 justify-between
+        <div className="fixed flex  top-0 left-0 right-0 bottom-0 justify-between
         max-w-[2000px] mx-[0.5rem] sm:mx-[1rem] md:mx-[1.56rem] lg:mx-[3.125rem] xl:mx-[3.5rem] big:mx-[4.5rem] bigXl:mx-auto
         " style={{zIndex: -1}}>
            
