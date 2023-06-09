@@ -63,21 +63,17 @@ export default function Index() {
         
         <Wraper customStyle="flex items-center justify-start">
           <div className="flex flex-col gap-6 pt-[180px]">
-            <motion.h1 className="text-[1.75rem]  xs:text-[1.875rem] md:text-[2.5rem] lg:text-[3.75rem] "
+            <motion.h1 className="text-[1.6rem]  xs:text-[1.875rem] md:text-[2.5rem] lg:text-[3.75rem] flex flex-col "
             initial="initial" animate="animate" variants={h1Variants}
             >
-              {/* <span className="overflow-hidden">
-                <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants1} >Hi, I’m A Frontend <span className="hidden [@media(min-width:390px)]:block ml-[0.75rem]">Developer</span></motion.span>
+              <span className="overflow-hidden">
+              <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants1} >Hi, I’m A Frontend Developer</motion.span>
               </span>
               <span className="overflow-hidden">
-                <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants2}  ><span className="mr-[0.75rem] [@media(min-width:390px)]:hidden">Developer</span>Specialized In <span className="ml-[0.75rem] hidden [@media(min-width:390px)]:block">Headless</span></motion.span>
-                </span>
-              <span className="overflow-hidden">
-                <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants3} ><span className="mr-[0.75rem] [@media(min-width:390px)]:hidden">Headless</span>Development</motion.span>
-              </span> */}
-              <span className="overflow-hidden flex flex-col">
-              <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants1} >Hi, I’m A Frontend Developer</motion.span>
               <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants2} >Specialized In Headless</motion.span>
+              </span>
+              <span className="overflow-hidden">
+
               <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants3} >Development</motion.span>
               </span>
               </motion.h1>
