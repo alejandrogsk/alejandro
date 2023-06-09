@@ -20,6 +20,9 @@ export default {
         xl: "1351px",
         big:"1500px",
         bigXl: "2000px"
+      },
+      transitionTimingFunction: {
+        'in-cubic': 'cubic-bezier(.15,.32,.35,.74)'
       }
     },
   },
