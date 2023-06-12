@@ -86,23 +86,14 @@ export default function Index() {
                   )
                 })
               }
-              {/* <span className="overflow-hidden">
-              <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants1} >Hi, I’m A Frontend Developer</motion.span>
-              </span>
-              <span className="overflow-hidden">
-              <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants2} >Specialized In Headless</motion.span>
-              </span>
-              <span className="overflow-hidden">
-
-              <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants3} >Development</motion.span>
-              </span> */}
               </motion.h1>
             <motion.p 
             initial={{translateY:100, opacity:0}} animate={{translateY:0, opacity:1}} transition={{ duration: .6, delay: 0.2}} 
             className="text-sm md:text-base lg:text-lg  mb-3 max-w-full lg:max-w-[65%]">I develop websites usgin a headles architecture to create sites more secure, fast and something. Whit this approach a company can save time and money in development, because...</motion.p>
-            <motion.button 
+            {/* <motion.button 
             initial={{translateY:100, opacity:0}} animate={{translateY:0, opacity:1}} transition={{ duration: .7, delay: 0.2}} 
-            className="uppercase block bg-black hover:bg-white text-white hover:text-black text-xs md:text-sm w-[150px] md:w-[170px] py-2 md:py-3 rounded-full shadow-lg	">Contact Me Now</motion.button>
+            style={{ transition: "background 300ms, color 300ms" }}
+            className="uppercase block bg-black hover:bg-white text-white hover:text-black text-xs md:text-sm w-[150px] md:w-[170px] py-2 md:py-3 rounded-full shadow-lg	">Contact Me Now</motion.button> */}
           </div>
         </Wraper>
 

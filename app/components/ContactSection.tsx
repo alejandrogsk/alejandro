@@ -6,7 +6,7 @@ const ContactSections = () => {
     const data = useActionData();
 
     return (
-        <div id="contact" className="grid grid-cols-1 items-center justify-center py-20 md:py-32 lg:py-40 ">
+        <div id="contact-me" className="grid grid-cols-1 items-center justify-center py-20 md:py-32 lg:py-40 ">
             <div className="grid grid-cols-[max-content_1fr] gap-8 items-start lg:items-center">
                 <img src={alejandrosuarez} alt="Alejandro Suarez Developer" width={80} height={80} />
                 <p className="uppercase text-sm lg:text-base max-w-full lg:max-w-[70%]">I would like to know about your project, so do not hesitate to fill out the form, I will contact you as soon as possible.</p>

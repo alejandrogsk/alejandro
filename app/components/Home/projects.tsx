@@ -1,9 +1,5 @@
 import { useEffect } from 'react'
 import Wraper from '../Layout/wraper'
-import img1 from "../../../public/show-1.png"
-import img2 from "../../../public/show-2.png"
-import img3 from "../../../public/show-3.png"
-import img4 from "../../../public/show-4.png"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer'
 import Subtitle from '../Subtitle'
@@ -101,7 +97,9 @@ const ProjectCardText = ({title, description}: { title: string, description:stri
           ml-auto lg:ml-0 block bg-black hover:bg-white text-white hover:text-black text-sm w-[100px] py-1 rounded-full shadow-lg	
           h-[30px] justify-self-end col-start-1 col-end-2  sm:col-start-2 sm:col-end-3 lg:col-start-3 col-end-4
           row-start-3 sm:row-start-2 lg:row-start-1
-          `}>View More</button>
+          `}
+          style={{ transition: "background 300ms, color 300ms" }}
+          >View More</button>
 
         </div>
     )
