@@ -7,47 +7,11 @@ import img4 from "../../../public/show-4.png"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from 'react-intersection-observer'
 import Subtitle from '../Subtitle'
+import { Project } from 'types/Project'
+import { Image } from 'types/Image'
 
-const projectsList = [
-    {
-      id:4121,
-      img: img1,
-      title: "Vicente Gutiérrez Portfolio",
-      role: "Developer",
-      tools: ["Next 13", "Strapi CMS", "Tailwind CMS", "Framer Motion", "Vercel"],
-      description: "This is a website for a brand new agency in Argentina, the goal was create a site that is fast and has good SEO ranking the the local area, so I’ve decided to use NextJs because it’s the best framwork for both. Besides Next I’ve used Tailwind CSS for the styling.",
-      link: "Visit Site"
-    },
-    {
-      id:14135145,
-      img: img2,
-      title: "PlanWeb Agency",
-      role: "Developer",
-      tools: ["Next 13", "Strapi CMS", "Tailwind CMS", "GSAP", "Vercel"],
-      description: "This is a website for a brand new agency in Argentina, the goal was create a site that is fast and has good SEO ranking the the local area, so I’ve decided to use NextJs because it’s the best framwork for both. Besides Next I’ve used Tailwind CSS for the styling.",
-      link: "Visit Site"
-    },
-    {
-      id:198563,
-      img: img3,
-      title: "Shopify Headless Site",
-      role: "Developer, Designer",
-      tools: ["Next 13", "Shopify", "Tailwind CMS", "Framer Motion"],
-      description: "This is a website for a brand new agency in Argentina, the goal was create a site that is fast and has good SEO ranking the the local area, so I’ve decided to use NextJs because it’s the best framwork for both. Besides Next I’ve used Tailwind CSS for the styling.",
-      link: "Visit Site"
-    },
-    {
-      id:4124121,
-      img: img4,
-      title: "Selected - Landing Page",
-      role: "Developer",
-      tools: ["Remix", "Contentful CMS", "Tailwind CMS", "Framer Motion", "Vercel"],
-      description: "This is a website for a brand new agency in Argentina, the goal was create a site that is fast and has good SEO ranking the the local area, so I’ve decided to use NextJs because it’s the best framwork for both. Besides Next I’ve used Tailwind CSS for the styling.",
-      link: "Visit Site"
-    }
-    
-  ]
-const Projects = () => {
+
+const Projects = ({projectsList}: { projectsList: Project[]}) => {
 
   return (
     <Wraper customStyle="py-[10rem]">
@@ -55,7 +19,7 @@ const Projects = () => {
             <div className="grid grid-cols-1 gap-20 mt-10">
               {
                 projectsList.map((project) => (
-                    <ProjectCard key={project.id} project={project} />
+                    <ProjectCard key={project.title} project={project} />
                 ))
               }
             </div>
@@ -65,17 +29,17 @@ const Projects = () => {
 
 
 
-const ProjectCard = ({project}: {project:any}) => {
-    const {title, description, link, img} = project;
+const ProjectCard = ({project}: {project:Project}) => {
+    const {title, description, image } = project;
     return(
         <div className="grid grid-cols-1 gap-4 xl:gap-8">
-            <ProjectCardImage image={img} title={title} />
-            <ProjectCardText title={title} description={description} link={link} />
+            <ProjectCardImage image={image} />
+            <ProjectCardText title={title} description={description} />
         </div>
     )
 }
 
-const ProjectCardImage = ({image, title}:{image:any, title:any}) => {
+const ProjectCardImage = ({image}:{image:Image}) => {
     const [ ref, inView ] = useInView({
         triggerOnce: true,
         threshold: 0.1
@@ -112,8 +76,8 @@ const ProjectCardImage = ({image, title}:{image:any, title:any}) => {
                 initial="initial"
                 animate={controls}
                 variants={variants}
-                src={image}
-                alt={title}
+                src={image.url}
+                alt={image.description??"image"}
                 className="shadow-lg"
             />
         </div>
@@ -121,7 +85,7 @@ const ProjectCardImage = ({image, title}:{image:any, title:any}) => {
 
 }
 
-const ProjectCardText = ({title, description, link}: any) => {
+const ProjectCardText = ({title, description}: { title: string, description:string}) => {
     const [ ref, inView ] = useInView({
         triggerOnce: true,
         threshold: 0.1
@@ -137,7 +101,7 @@ const ProjectCardText = ({title, description, link}: any) => {
           ml-auto lg:ml-0 block bg-black hover:bg-white text-white hover:text-black text-sm w-[100px] py-1 rounded-full shadow-lg	
           h-[30px] justify-self-end col-start-1 col-end-2  sm:col-start-2 sm:col-end-3 lg:col-start-3 col-end-4
           row-start-3 sm:row-start-2 lg:row-start-1
-          `}>{link}</button>
+          `}>View More</button>
 
         </div>
     )

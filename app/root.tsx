@@ -10,6 +10,7 @@ import {
 } from "@remix-run/react";
 import stylesheet from "~/tailwind.css";
 import Navigation from "./components/Layout/Navigation";
+import Grid from "./components/Layout/Grid";
 
 
 export const links: LinksFunction = () => [
@@ -29,8 +30,9 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-grey-light">
+      <body className="bg-grey-light relative">
         <Navigation />
+        <Grid />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
