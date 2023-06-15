@@ -1,15 +1,13 @@
 import { Form, useActionData } from "@remix-run/react";
-
-
-import alejandrosuarez from "../../public/logos/Alejandro-Suarez.png"
-const ContactSections = () => {
+import { Image } from "types/Image";
+const ContactSections = ({contactText, profilePicture}: {contactText:string,profilePicture:Image}) => {
     const data = useActionData();
 
     return (
         <div id="contact-me" className="grid grid-cols-1 items-center justify-center py-20 md:py-32 lg:py-40 ">
             <div className="grid grid-cols-[max-content_1fr] gap-8 items-start lg:items-center">
-                <img src={alejandrosuarez} alt="Alejandro Suarez Developer" width={80} height={80} />
-                <p className="uppercase text-sm lg:text-base max-w-full lg:max-w-[70%]">I would like to know about your project, so do not hesitate to fill out the form, I will contact you as soon as possible.</p>
+                <img src={profilePicture.url} alt={profilePicture.description??"ALejandro Suarez"} width={80} height={80} />
+                <p className="uppercase text-sm lg:text-base max-w-full lg:max-w-[70%]">{contactText}</p>
             </div>
             <Form method="post" className="mt-28 grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-20">
                 <div className="flex flex-col">
@@ -71,6 +69,7 @@ const ContactSections = () => {
                     <span className="text-blue-400 col-start-1 col-end-2 md:col-end-3">{data.message}</span>
                 )}
                 <button type="submit"
+                style={{ transition: "background 300ms, color 300ms" }}
                  className="uppercase block bg-black hover:bg-white text-white hover:text-black text-xs md:text-sm w-[150px] md:w-[170px] py-2 md:py-3 rounded-full shadow-lg	"
                 >Submit</button>
             </Form>

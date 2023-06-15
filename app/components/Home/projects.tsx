@@ -6,9 +6,7 @@ import Subtitle from '../Subtitle'
 import { Project } from 'types/Project'
 import { Image } from 'types/Image'
 
-
 const Projects = ({projectsList}: { projectsList: Project[]}) => {
-
   return (
     <Wraper customStyle="py-[10rem]">
         <Subtitle  subtitle='RECENT PROJECTS'/>
@@ -29,7 +27,7 @@ const ProjectCard = ({project}: {project:Project}) => {
     const {title, description, image } = project;
     return(
         <div className="grid grid-cols-1 gap-4 xl:gap-8">
-            <ProjectCardImage image={image} />
+            {image && <ProjectCardImage image={image} />}
             <ProjectCardText title={title} description={description} />
         </div>
     )

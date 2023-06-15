@@ -23,6 +23,7 @@ import { HOME_PAGE } from "~/graphql/queries/homePage";
 import { useLoaderData } from "@remix-run/react";
 import { HomePage } from "types/HomePage";
 import { Image } from "types/Image";
+import ToolsAndPlatforms from "~/components/Home/ToolsAndPlatforms";
 
 export async function action({request}:ActionArgs) {
   const data = await validator.validate( await request.formData() );
@@ -53,10 +54,9 @@ export default function Index() {
 
   const { data } = useLoaderData();
 
-  const { title, subtitle, cta, logosWhiteVersionCollection, recentProjectsCollection   } = data;
+  const { title, subtitle,  logosWhiteVersionCollection, recentProjectsCollection, contactText, profilePicture  } = data;
 
-  console.log("data: ", title)
-  console.log("recentProjectsCollection: ", recentProjectsCollection)
+  
   return (
     <div style={{ fontFamily: "Inter, sans-serif", lineHeight: 1.125 }}
     className="h-full"
@@ -66,6 +66,7 @@ export default function Index() {
         
         <Wraper customStyle="flex items-center justify-start">
           <div className="flex flex-col gap-6 pt-[180px]">
+            
             <motion.h1 className="text-[1.6rem]  xs:text-[1.875rem] md:text-[2.5rem] lg:text-[3.75rem] flex flex-col "
             initial="initial" animate="animate" variants={h1Variants}
             >
@@ -80,7 +81,7 @@ export default function Index() {
                   }
 
                   return(
-                    <span className="overflow-hidden">
+                    <span key={i} className="overflow-hidden">
                       <motion.span className="inline-flex" initial="initial" animate="animate" variants={spanVariants} >{tText}</motion.span>
                     </span>
                   )
@@ -89,11 +90,7 @@ export default function Index() {
               </motion.h1>
             <motion.p 
             initial={{translateY:100, opacity:0}} animate={{translateY:0, opacity:1}} transition={{ duration: .6, delay: 0.2}} 
-            className="text-sm md:text-base lg:text-lg  mb-3 max-w-full lg:max-w-[65%]">I develop websites usgin a headles architecture to create sites more secure, fast and something. Whit this approach a company can save time and money in development, because...</motion.p>
-            {/* <motion.button 
-            initial={{translateY:100, opacity:0}} animate={{translateY:0, opacity:1}} transition={{ duration: .7, delay: 0.2}} 
-            style={{ transition: "background 300ms, color 300ms" }}
-            className="uppercase block bg-black hover:bg-white text-white hover:text-black text-xs md:text-sm w-[150px] md:w-[170px] py-2 md:py-3 rounded-full shadow-lg	">Contact Me Now</motion.button> */}
+            className="text-sm md:text-base lg:text-lg  mb-3 max-w-full lg:max-w-[65%]">{subtitle}</motion.p>
           </div>
         </Wraper>
 
@@ -102,23 +99,10 @@ export default function Index() {
         
 
 
-        <Wraper>
-          <Subtitle subtitle="TOOlS AND PLATFORMS"/>
-          <div className="mt-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3s lg:grid-cols-5 gap-20
-            items-center justify-center
-            ">
-              {
-logosWhiteVersionCollection.items.map((logo:Image, i:number) => <img src={logo.url} alt={logo.description || `Logo Image`} height={50}
-className="max-h-[30px] md:max-h-[40px] lg:max-h-[50px] w-auto"
-/>)
-              }
-            </div>
-          </div>
-        </Wraper>
+        <ToolsAndPlatforms logosWhiteVersionCollection={logosWhiteVersionCollection} />
 
         <Wraper>
-        <ContactSections />
+        <ContactSections contactText={contactText} profilePicture={profilePicture}/>
         </Wraper>
       </Wraper>
     </div>
