@@ -67,7 +67,7 @@ export default function Index() {
         <Wraper customStyle="flex items-center justify-start">
           <div className="flex flex-col gap-6 pt-[180px]">
             
-            <motion.h1 className="text-[1.6rem]  xs:text-[1.875rem] md:text-[2.5rem] lg:text-[3.75rem] flex flex-col "
+            <motion.h1 className="text-[1.5rem]  xs:text-[1.875rem] md:text-[2.5rem] lg:text-[3.75rem] flex flex-col "
             initial="initial" animate="animate" variants={h1Variants}
             >
               {
