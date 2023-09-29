@@ -1,4 +1,4 @@
-import { ActionArgs, V2_MetaFunction, json } from "@remix-run/node";
+import { ActionArgs, MetaFunction, json } from "@remix-run/node";
 import Wraper from "~/components/Layout/wraper";
 import validator from "~/utils/formValidator";
 import {
@@ -13,10 +13,15 @@ import { HomePage } from "types/HomePage";
 import ToolsAndPlatforms from "~/components/Home/ToolsAndPlatforms";
 import HeroSection from "~/components/Home/HeroSection";
 import { nodemailer } from "~/entry.server";
-export const meta: V2_MetaFunction = () => {
+
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const { seo } = data.data;
+
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: seo.seoTitle ?? "Alejandro Suarez" },
+    { name: "description", content: seo.description ?? "Frontend Web Developer" },
+    
   ];
 };
 
@@ -25,8 +30,7 @@ export async function action({request}:ActionArgs) {
   const data = await validator.validate( await request.formData() );
   if (data.error) return validationError(data.error);
   const { clientName, clientLastName, clientEmail, clientCompany } = data.data;
-  
-  console.log('data', clientName, clientLastName, clientEmail, clientCompany )
+
   try {
     const transporter = await nodemailer.createTransport({
       port: 465,

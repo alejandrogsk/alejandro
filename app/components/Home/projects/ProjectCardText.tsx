@@ -1,11 +1,11 @@
+import { redirect } from "@remix-run/node";
 import { useInView } from "react-intersection-observer";
 
-const ProjectCardText = ({title, description}: { title: string, description:string}) => {
+const ProjectCardText = ({ title, description, externalUrl }: { title: string, description:string, externalUrl?:string}) => {
     const [ ref, inView ] = useInView({
         triggerOnce: true,
         threshold: 0.1
     });    
-
     
     return(
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-[100px_1fr] lg:grid-cols-[200px_1fr_200px] py-3 gap-4">
@@ -19,12 +19,15 @@ const ProjectCardText = ({title, description}: { title: string, description:stri
           row-start-3 sm:row-start-2 lg:row-start-1
           `}>
 
-          <button className={`
+          {
+            externalUrl &&
+            <a href={externalUrl} className={`
           ml-auto lg:ml-0 block bg-black hover:bg-white text-white hover:text-black text-sm w-[100px] py-1 rounded-full shadow-lg	
-          h-[30px] 
+          h-[30px] text-center
           `}
           style={{ transition: "background 300ms, color 300ms" }}
-          >View More</button>
+          >View More</a>
+          }
           </div>
 
         </div>

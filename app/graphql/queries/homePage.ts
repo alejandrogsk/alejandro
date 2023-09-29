@@ -10,6 +10,10 @@ export const HOME_PAGE = gql`
                 label
                 url
             }
+            seo{
+                seoTitle,
+                description
+            }
             recentProjectsCollection {
                 items {
                     title
@@ -18,6 +22,7 @@ export const HOME_PAGE = gql`
                         description
                         url
                     }
+                    externalUrl
                 }
             }
 

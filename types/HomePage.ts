@@ -8,7 +8,11 @@ export type HomePage = {
         label: string,
         url: string
     }
-
+    seo: {
+        seoTitle:string,
+        description: string
+        pageTitle: string
+    }
     recentProjectsCollection: {
         items: Project[]
     }
