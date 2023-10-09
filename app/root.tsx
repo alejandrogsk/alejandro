@@ -38,6 +38,7 @@ export default function App() {
     }
   }, [location, gaTrackingId]);
 
+
   return (
     <html lang="en">
       <head>
@@ -47,6 +48,29 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-grey-light relative">
+      {process.env.NODE_ENV === "development" || !gaTrackingId ? null : (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+            />
+            <script
+              async
+              id="gtag-init"
+              dangerouslySetInnerHTML={{
+                __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${gaTrackingId}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+              }}
+            />
+          </>
+        )}
         <Navigation />
         <Grid />
         <Outlet />
