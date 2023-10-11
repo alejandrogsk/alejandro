@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Wraper from '../Layout/wraper'
 import Subtitle from '../Subtitle'
 import {motion, useAnimationControls} from 'framer-motion'
@@ -38,7 +38,7 @@ const ToolsAndPlatforms = ({logosWhiteVersionCollection}: {logosWhiteVersionColl
     <Wraper>
     <Subtitle subtitle="TOOLS AND PLATFORMS"/>
     <div className="mt-10" ref={ref}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3s lg:grid-cols-5 gap-20
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-20
       items-center justify-center
       ">
         {
